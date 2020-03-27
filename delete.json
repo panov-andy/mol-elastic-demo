@@ -1,0 +1,14 @@
+{
+  "settings": {},
+  "mapping": {
+    "properties": {
+      "name": {
+        "properties": {
+          "first": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
