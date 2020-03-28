@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "b0ded59f-e2a9-4e3a-95cd-124389f514a7",
+		"name": "mnu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "создать схему",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"color\": {\n        \"type\": \"keyword\"\n      },\n      \"string_facet\": {\n        \"type\": \"nested\",\n        \"properties\": {\n          \"facet-name\": {\n            \"type\": \"keyword\"\n          },\n          \"facet-value\": {\n            \"type\": \"keyword\"\n          }\n        }\n      },\n      \"number_facet\": {\n        \"type\": \"nested\",\n        \"properties\": {\n          \"facet-name\": {\n            \"type\": \"keyword\"\n          },\n          \"facet-value\": {\n            \"type\": \"double\"\n          }\n        }\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "удалить схему",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "посмотреть все документы",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"aggregations\": {\n    \"agg_string_facet\": {\n      \"nested\": {\n        \"path\": \"string_facets\"\n      },\n      \"aggregations\": {\n        \"facet_name\": {\n          \"terms\": {\n            \"field\": \"string_facets.facet-name\"\n          },\n          \"aggregations\": {\n            \"facet_value\": {\n              \"terms\": {\n                \"field\": \"string_facets.facet-value\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"filter\": {\n    \"nested\": {\n      \"path\": \"string_facets\",\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"term\": {\n                \"string_facets.facet-name\": \"hammer_weight\"\n              }\n            },\n            {\n              \"terms\": {\n                \"string_facets.facet-value\": [\n                  \"2000\"\n                ]\n              }\n            }\n          ]\n        }\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/play1/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"play1",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "futbolka1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Futbolka 1\",\n  \"color\": \"red\",\n  \"string_facet\": [\n    {\n      \"facet-name\": \"manufacturer\",\n      \"facet-value\": \"Adidas\"\n    },\n    {\n      \"facet-name\": \"size\",\n      \"facet-value\": \"SS\"\n    }\n  ],\n  \"number_facet\": [\n    {\n      \"facet-name\": \"price\",\n      \"facet-value\": 42\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_doc/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "futbolka2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Futbolka 2\",\n  \"color\": \"red\",\n  \"string_facet\": [\n    {\n      \"facet-name\": \"manufacturer\",\n      \"facet-value\": \"Adidas\"\n    },\n    {\n      \"facet-name\": \"size\",\n      \"facet-value\": \"MM\"\n    }\n  ],\n  \"number_facet\": [\n    {\n      \"facet-name\": \"price\",\n      \"facet-value\": 52\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_doc/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_doc",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "futbolka3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Futbolka 3\",\n  \"color\": \"blue\",\n  \"string_facet\": [\n    {\n      \"facet-name\": \"manufacturer\",\n      \"facet-value\": \"Reebok\"\n    },\n    {\n      \"facet-name\": \"size\",\n      \"facet-value\": \"SS\"\n    }\n  ],\n  \"number_facet\": [\n    {\n      \"facet-name\": \"price\",\n      \"facet-value\": 62\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_doc/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_doc",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "посмотреть все документы",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match_all\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aggr1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aggs\": {\n    \"agg_string_facet\": {\n      \"nested\": {\n        \"path\": \"string_facet\"\n      },\n      \"aggs\": {\n        \"facet_name\": {\n          \"terms\": {\n            \"field\": \"string_facet.facet-name\"\n          },\n          \"aggs\": {\n            \"facet_value\": {\n              \"terms\": {\n                \"field\": \"string_facet.facet-value\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "агрегат по цвету",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aggs\": {\n    \"by_color\": {\n      \"terms\": {\n        \"field\": \"color\"\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "поиграть",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aggs\": {\n    \"resellers\": {\n      \"nested\": {\n        \"path\": \"string_facet\"\n      },\n      \"aggs\": {\n        \"min_price\": {\n          \"terms\": {\n            \"field\": \"string_facet.facet-name\"\n          }\n        }\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "маппинг текущий",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aggs\": {\n    \"by_color\": {\n      \"terms\": {\n        \"field\": \"string_facets.facet-name\"\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/my/_mapping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"my",
+						"_mapping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
