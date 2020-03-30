@@ -1,0 +1,245 @@
+{
+  "sortKeyword": "2013300068210",
+  "product": {
+    "id": "0ca16327-68eb-11ea-0a80-00a300033bee",
+    "name": "Рюкзак Baliviya (16362 BEIGE) VT #68210",
+    "code": "68210",
+    "externalCode": "0yzoz9vcjDJdLZ50Yu3e03",
+    "groupCode": "68210",
+    "article": "16362 beige #68210",
+    "supplierArticle": "16362 BEIGE",
+    "productType": {
+      "code": "rjukzaki",
+      "name": "Рюкзак"
+    },
+    "brand": {
+      "code": "baliviya",
+      "name": "Baliviya"
+    },
+    "sexGroup": {
+      "code": "F",
+      "name": "Женский"
+    },
+    "ageGroup": {
+      "code": "ADULT",
+      "name": "Взрослый"
+    },
+    "season": {
+      "code": "SS",
+      "name": "Весна/Лето"
+    },
+    "archived": false,
+    "available": true,
+    "stockUpdated": "2020-03-25 09:27:00.000",
+    "promoOrder": -1,
+    "isSale": false,
+    "salePrices": [
+      {
+        "id": "e0b4a992-f9c5-44aa-8cee-afa0257a95e6",
+        "name": "Цена оптовая",
+        "value": 1500
+      },
+      {
+        "id": "9b29b27d-d100-11e3-090f-002590a28eca",
+        "name": "Цена старая",
+        "value": 0
+      },
+      {
+        "id": "cbf605f6-16e5-11e4-add0-002590a28eca",
+        "name": "Цена минимальная",
+        "value": 0
+      },
+      {
+        "id": "15604a7f-a42e-11e2-d8d7-001b21d91495",
+        "name": "Цена розничная",
+        "value": 0
+      }
+    ],
+    "buyPrice": {
+      "value": 1200
+    },
+    "supplierCode": "TR-VT",
+    "barcodes": [
+      "68210"
+    ],
+    "country": "Китай",
+    "weight": 0,
+    "features": {
+      "материал": [
+        {
+          "type": "material",
+          "name": "искусственная кожа"
+        }
+      ],
+      "способ ношения": [
+        {
+          "type": "wear",
+          "name": "в руке"
+        },
+        {
+          "type": "wear",
+          "name": "рюкзак"
+        }
+      ],
+      "отделения": [
+        {
+          "type": "compartment",
+          "name": "основное отделение",
+          "value": 1,
+          "description": "на молнии"
+        },
+        {
+          "type": "compartment",
+          "name": "внешний карман",
+          "value": 1,
+          "description": "на молнии"
+        },
+        {
+          "type": "compartment",
+          "name": "задний карман",
+          "description": "на молнии",
+          "value": 1
+        }
+      ],
+      "размеры": [
+        {
+          "type": "size",
+          "name": "длина",
+          "value": 26,
+          "unit": "см"
+        },
+        {
+          "type": "size",
+          "name": "высота",
+          "value": 34.2,
+          "unit": "см"
+        },
+        {
+          "type": "size",
+          "name": "ширина",
+          "value": 16.7,
+          "unit": "см"
+        }
+      ]
+    },
+    "images": [],
+    "tags": [],
+    "updated": 1585117696000,
+    "created": 1584516900000,
+    "published": 1585101780000
+  },
+  "searchData": {
+    "keywordFacets": [
+      {
+        "facetName": "PRODUCT_TYPE",
+        "facetValue": "rjukzaki"
+      },
+      {
+        "facetName": "BRAND",
+        "facetValue": "baliviya"
+      },
+      {
+        "facetName": "SEX",
+        "facetValue": "F"
+      },
+      {
+        "facetName": "AGE",
+        "facetValue": "ADULT"
+      },
+      {
+        "facetName": "SEASON",
+        "facetValue": "SS"
+      },
+      {
+        "facetName": "SUPPLIER",
+        "facetValue": "TR-VT"
+      },
+      {
+        "facetName": "COUNTRY",
+        "facetValue": "156"
+      },
+      {
+        "facetName": "MATERIAL",
+        "facetValue": "искусственная кожа"
+      },
+      {
+        "facetName": "COMPOSITION",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "COLOR",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "SHAPE",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "SKELETON",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "STYLE",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "TEXTURE",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "PACK",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "WEAR",
+        "facetValue": "в руке"
+      },
+      {
+        "facetName": "WEAR",
+        "facetValue": "рюкзак"
+      },
+      {
+        "facetName": "A4",
+        "facetValue": "EMPTY"
+      },
+      {
+        "facetName": "COMPARTMENT",
+        "facetValue": "1 отдел"
+      },
+      {
+        "facetName": "COMPARTMENT",
+        "facetValue": "внешние карманы"
+      },
+      {
+        "facetName": "COMPARTMENT",
+        "facetValue": "задний карман"
+      },
+      {
+        "facetName": "COMPARTMENT",
+        "facetValue": "основные отделы на молнии"
+      }
+    ],
+    "integerFacets": [
+      {
+        "facetName": "RETAIL_PRICE",
+        "facetValue": 0
+      },
+      {
+        "facetName": "WHOLESALE_PRICE",
+        "facetValue": 0
+      }
+    ]
+  },
+  "categoryData": {
+    "directParents": [
+      "Рюкзаки"
+    ],
+    "allParents": [
+      "Сумки",
+      "Рюкзаки"
+    ],
+    "paths": [
+      "Сумки/Рюкзаки"
+    ]
+  }
+}
