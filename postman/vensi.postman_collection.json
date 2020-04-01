@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "e59b1f5b-157a-44b4-b2c2-274d13d88954",
+		"name": "vensi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "удалить схему",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/vensi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"vensi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "создать схему",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"dynamic\": false,\n    \"dynamic_templates\": [\n      {\n        \"category\": {\n          \"mapping\": {\n            \"type\": \"keyword\"\n          },\n          \"path_match\": \"categoryData.*\"\n        }\n      },\n      {\n        \"features\": {\n          \"mapping\": {\n            \"properties\": {\n              \"type\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              },\n              \"description\": {\n                \"type\": \"keyword\"\n              },\n              \"unit\": {\n                \"type\": \"keyword\"\n              },\n              \"value\": {\n                \"dynamic\": true\n              }\n            }\n          },\n          \"path_match\": \"product.features.*\"\n        }\n      }\n    ],\n    \"properties\": {\n      \"product\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"keyword\"\n          },\n          \"name\": {\n            \"type\": \"text\"\n          },\n          \"code\": {\n            \"type\": \"keyword\"\n          },\n          \"externalCode\": {\n            \"type\": \"keyword\"\n          },\n          \"groupCode\": {\n            \"type\": \"keyword\"\n          },\n          \"article\": {\n            \"type\": \"text\",\n            \"fields\": {\n              \"keyword\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"supplierArticle\": {\n            \"type\": \"text\"\n          },\n          \"productType\": {\n            \"properties\": {\n              \"code\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"brand\": {\n            \"properties\": {\n              \"code\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"sexGroup\": {\n            \"properties\": {\n              \"code\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"ageGroup\": {\n            \"properties\": {\n              \"code\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"season\": {\n            \"properties\": {\n              \"code\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"archived\": {\n            \"type\": \"boolean\"\n          },\n          \"available\": {\n            \"type\": \"boolean\"\n          },\n          \"stockUpdated\": {\n            \"type\": \"date\",\n            \"format\": \"yyyy-MM-dd HH:mm:ss.SSS\"\n          },\n          \"promoOrder\": {\n            \"type\": \"integer\"\n          },\n          \"isSale\": {\n            \"type\": \"boolean\"\n          },\n          \"salePrices\": {\n            \"type\": \"nested\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"keyword\"\n              },\n              \"name\": {\n                \"type\": \"keyword\"\n              },\n              \"value\": {\n                \"type\": \"integer\"\n              }\n            }\n          },\n          \"buyPrice\": {\n            \"properties\": {\n              \"value\": {\n                \"type\": \"integer\"\n              }\n            }\n          },\n          \"supplierCode\": {\n            \"type\": \"keyword\"\n          },\n          \"barcodes\": {\n            \"type\": \"keyword\"\n          },\n          \"country\": {\n            \"type\": \"keyword\"\n          },\n          \"weight\": {\n            \"type\": \"integer\"\n          },\n          \"images\": {\n            \"type\": \"nested\",\n            \"properties\": {\n              \"updated\": {\n                \"type\": \"date\"\n              },\n              \"view\": {\n                \"type\": \"keyword\"\n              },\n              \"tinyUrl\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"tags\": {\n            \"type\": \"keyword\"\n          },\n          \"updated\": {\n            \"type\": \"date\"\n          },\n          \"created\": {\n            \"type\": \"date\"\n          },\n          \"published\": {\n            \"type\": \"date\"\n          }\n        }\n      },\n      \"searchData\": {\n        \"properties\": {\n          \"keywordFacets\": {\n            \"type\": \"nested\",\n            \"properties\": {\n              \"facetName\": {\n                \"type\": \"keyword\"\n              },\n              \"facetValue\": {\n                \"type\": \"keyword\"\n              }\n            }\n          },\n          \"integerFacets\": {\n            \"type\": \"nested\",\n            \"properties\": {\n              \"facetName\": {\n                \"type\": \"keyword\"\n              },\n              \"facetValue\": {\n                \"type\": \"integer\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/vensi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"vensi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "агрегация без фильтров",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\": 0,\n  \"aggs\": {\n    \"agg_attr_strings\": {\n      \"nested\": {\n        \"path\": \"searchData.keywordFacets\"\n      },\n      \"aggs\": {\n        \"attr_name\": {\n          \"terms\": {\n            \"field\": \"searchData.keywordFacets.facetName\"\n          },\n          \"aggs\": {\n            \"attr_value\": {\n              \"terms\": {\n                \"field\": \"searchData.keywordFacets.facetValue\",\n                \"size\": 1000,\n                \"order\": [\n                  {\n                    \"_term\": \"asc\"\n                  }\n                ]\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/vensi/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"vensi",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "агрегация с фильтрами не работает",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"took\": 89,\n  \"timed_out\": false,\n  \"_shards\": {\n    \"total\": 1,\n    \"successful\": 1,\n    \"skipped\": 0,\n    \"failed\": 0\n  },\n  \"hits\": {\n    \"total\": {\n      \"value\": 2412,\n      \"relation\": \"eq\"\n    },\n    \"max_score\": null,\n    \"hits\": []\n  },\n  \"aggregations\": {\n    \"agg_attr_strings\": {\n      \"doc_count\": 47430,\n      \"attr_name\": {\n        \"doc_count_error_upper_bound\": 0,\n        \"sum_other_doc_count\": 19398,\n        \"buckets\": [\n          {\n            \"key\": \"COMPARTMENT\",\n            \"doc_count\": 5185,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"1 отдел\",\n                  \"doc_count\": 941\n                },\n                {\n                  \"key\": \"2 отдела\",\n                  \"doc_count\": 135\n                },\n                {\n                  \"key\": \"3 отдела\",\n                  \"doc_count\": 105\n                },\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 1231\n                },\n                {\n                  \"key\": \"внешние карманы\",\n                  \"doc_count\": 550\n                },\n                {\n                  \"key\": \"задний карман\",\n                  \"doc_count\": 1004\n                },\n                {\n                  \"key\": \"много карманов\",\n                  \"doc_count\": 18\n                },\n                {\n                  \"key\": \"много отделов\",\n                  \"doc_count\": 109\n                },\n                {\n                  \"key\": \"основные отделы на молнии\",\n                  \"doc_count\": 1092\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"WEAR\",\n            \"doc_count\": 3338,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 1231\n                },\n                {\n                  \"key\": \"в руке\",\n                  \"doc_count\": 918\n                },\n                {\n                  \"key\": \"на поясе\",\n                  \"doc_count\": 14\n                },\n                {\n                  \"key\": \"рюкзак\",\n                  \"doc_count\": 166\n                },\n                {\n                  \"key\": \"через плечо\",\n                  \"doc_count\": 1009\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"MATERIAL\",\n            \"doc_count\": 2522,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 878\n                },\n                {\n                  \"key\": \"искусственная кожа\",\n                  \"doc_count\": 1292\n                },\n                {\n                  \"key\": \"композитная кожа\",\n                  \"doc_count\": 22\n                },\n                {\n                  \"key\": \"натуральная замша\",\n                  \"doc_count\": 7\n                },\n                {\n                  \"key\": \"натуральная кожа\",\n                  \"doc_count\": 219\n                },\n                {\n                  \"key\": \"натуральная кожа (внутри)\",\n                  \"doc_count\": 40\n                },\n                {\n                  \"key\": \"текстиль\",\n                  \"doc_count\": 64\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"COMPOSITION\",\n            \"doc_count\": 2515,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 1975\n                },\n                {\n                  \"key\": \"вискоза\",\n                  \"doc_count\": 91\n                },\n                {\n                  \"key\": \"лён\",\n                  \"doc_count\": 12\n                },\n                {\n                  \"key\": \"полиэстeр\",\n                  \"doc_count\": 48\n                },\n                {\n                  \"key\": \"хлопок\",\n                  \"doc_count\": 219\n                },\n                {\n                  \"key\": \"шелк\",\n                  \"doc_count\": 144\n                },\n                {\n                  \"key\": \"шерсть\",\n                  \"doc_count\": 10\n                },\n                {\n                  \"key\": \"шифон\",\n                  \"doc_count\": 16\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"A4\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 2412\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"AGE\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"ADULT\",\n                  \"doc_count\": 2412\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"BRAND\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY_CODE\",\n                  \"doc_count\": 25\n                },\n                {\n                  \"key\": \"baliviya\",\n                  \"doc_count\": 305\n                },\n                {\n                  \"key\": \"batty\",\n                  \"doc_count\": 81\n                },\n                {\n                  \"key\": \"benlina\",\n                  \"doc_count\": 76\n                },\n                {\n                  \"key\": \"canevo\",\n                  \"doc_count\": 25\n                },\n                {\n                  \"key\": \"coscet\",\n                  \"doc_count\": 2\n                },\n                {\n                  \"key\": \"cosset\",\n                  \"doc_count\": 6\n                },\n                {\n                  \"key\": \"cossni\",\n                  \"doc_count\": 2\n                },\n                {\n                  \"key\": \"danica\",\n                  \"doc_count\": 42\n                },\n                {\n                  \"key\": \"david-jones\",\n                  \"doc_count\": 84\n                },\n                {\n                  \"key\": \"dupont\",\n                  \"doc_count\": 1\n                },\n                {\n                  \"key\": \"fani\",\n                  \"doc_count\": 18\n                },\n                {\n                  \"key\": \"fashionset\",\n                  \"doc_count\": 795\n                },\n                {\n                  \"key\": \"ferragamo\",\n                  \"doc_count\": 2\n                },\n                {\n                  \"key\": \"flowers\",\n                  \"doc_count\": 6\n                },\n                {\n                  \"key\": \"fuerdanni\",\n                  \"doc_count\": 10\n                },\n                {\n                  \"key\": \"futlani\",\n                  \"doc_count\": 9\n                },\n                {\n                  \"key\": \"gilda-tohetti\",\n                  \"doc_count\": 122\n                },\n                {\n                  \"key\": \"giorgio-armani\",\n                  \"doc_count\": 7\n                },\n                {\n                  \"key\": \"helai\",\n                  \"doc_count\": 6\n                },\n                {\n                  \"key\": \"ivorx\",\n                  \"doc_count\": 56\n                },\n                {\n                  \"key\": \"kenguluna\",\n                  \"doc_count\": 21\n                },\n                {\n                  \"key\": \"kenguru\",\n                  \"doc_count\": 110\n                },\n                {\n                  \"key\": \"lasfernando\",\n                  \"doc_count\": 12\n                },\n                {\n                  \"key\": \"leather\",\n                  \"doc_count\": 20\n                },\n                {\n                  \"key\": \"marco-coverna\",\n                  \"doc_count\": 1\n                },\n                {\n                  \"key\": \"no-brand\",\n                  \"doc_count\": 123\n                },\n                {\n                  \"key\": \"petek\",\n                  \"doc_count\": 8\n                },\n                {\n                  \"key\": \"peters\",\n                  \"doc_count\": 46\n                },\n                {\n                  \"key\": \"prestigio\",\n                  \"doc_count\": 2\n                },\n                {\n                  \"key\": \"roccobarocco\",\n                  \"doc_count\": 6\n                },\n                {\n                  \"key\": \"saralyn\",\n                  \"doc_count\": 7\n                },\n                {\n                  \"key\": \"sezfert\",\n                  \"doc_count\": 20\n                },\n                {\n                  \"key\": \"somuch\",\n                  \"doc_count\": 8\n                },\n                {\n                  \"key\": \"valle-mitto\",\n                  \"doc_count\": 62\n                },\n                {\n                  \"key\": \"velina-fabbiano\",\n                  \"doc_count\": 217\n                },\n                {\n                  \"key\": \"vereva\",\n                  \"doc_count\": 10\n                },\n                {\n                  \"key\": \"vevers\",\n                  \"doc_count\": 5\n                },\n                {\n                  \"key\": \"weiliya\",\n                  \"doc_count\": 54\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"COLOR\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 2412\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"COUNTRY\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"156\",\n                  \"doc_count\": 2412\n                }\n              ]\n            }\n          },\n          {\n            \"key\": \"PACK\",\n            \"doc_count\": 2412,\n            \"attr_value\": {\n              \"doc_count_error_upper_bound\": 0,\n              \"sum_other_doc_count\": 0,\n              \"buckets\": [\n                {\n                  \"key\": \"EMPTY\",\n                  \"doc_count\": 2058\n                },\n                {\n                  \"key\": \"коробка\",\n                  \"doc_count\": 275\n                },\n                {\n                  \"key\": \"пленка\",\n                  \"doc_count\": 79\n                }\n              ]\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/vensi/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"vensi",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
